@@ -90,6 +90,8 @@ func UpdateState(relationShip *RelationShips) error {
 //insert or update RelationShip
 func insertOrUpdateRelation(ships *RelationShips) error {
 	err := db.DB().Insert(ships)
-	_, err = db.DB().Model(ships).OnConflict("(id,other_user_id) DO UPDATE").Set("state=EXCLUDED.state").Insert()
+	if err!= nil {
+		_, err = db.DB().Model(ships).OnConflict("(id,other_user_id) DO UPDATE").Set("state=EXCLUDED.state").Insert()
+	}
 	return err
 }
