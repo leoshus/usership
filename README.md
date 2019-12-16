@@ -20,7 +20,7 @@ note: use yourself name,then should modify `config/config.json`
 
 3.build and run
 ```shell script
-go build
+cd usership && go build
 ./usership
 ```
 
